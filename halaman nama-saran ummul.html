@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kotak Saran Interaktif</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .output {
+      margin-top: 1.5rem;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Kotak Saran</h2>
+  <input type="text" id="nama" placeholder="Nama Anda" />
+  <textarea id="saran" rows="4" placeholder="Masukkan saran Anda di sini..."></textarea>
+  <button onclick="kirimSaran()">Kirim</button>
+  <div class="output" id="output"></div>
+</div>
+
+<script>
+  function kirimSaran() {
+    const nama = document.getElementById("nama").value.trim();
+    const saran = document.getElementById("saran").value.trim();
+    const output = document.getElementById("output");
+
+    if (nama !== "" && saran !== "") {
+      output.innerHTML = "Terima kasih, <b>${nama}</b>! Saran Anda telah diterima.";
+    } else {
+      output.innerHTML = "<span style='color:red;'>Harap isi semua kolom.</span>";
+    }
+  }
+</script>
+
+</body>
+</html>
